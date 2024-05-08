@@ -39,4 +39,23 @@ describe("dapp-starter", () => {
     const counter = await program.account.counter.fetch(config.publicKey);
     assert.equal(counter.count, 1, "expect counter value to be 1");
   });
+
+  it("Setup reserve", async () => {
+    const se = "SE1";
+    const [reserveState] = anchor.web3.PublicKey.findProgramAddressSync(
+        [Buffer.from(se)],
+        program.programId,
+    );
+    const tx = await program.rpc.reserve(se, {
+      accounts: {
+        reserveState: reserveState,
+        user: program.provider.wallet.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      },
+    });
+    console.log("Setup reserve success at tx", tx);
+
+    const reserveStateAccount = await program.account.reserveState.fetch(reserveState);
+    console.log(reserveStateAccount);
+  })
 });

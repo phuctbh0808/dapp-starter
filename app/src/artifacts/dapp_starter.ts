@@ -38,6 +38,32 @@ export type DappStarter = {
         }
       ],
       "args": []
+    },
+    {
+      "name": "reserve",
+      "accounts": [
+        {
+          "name": "reserveState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "se",
+          "type": "string"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -49,6 +75,34 @@ export type DappStarter = {
           {
             "name": "count",
             "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "reserveState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "publicKey"
+          },
+          {
+            "name": "apy",
+            "type": "f32"
+          },
+          {
+            "name": "rewardToken",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenDecimals",
+            "type": "u8"
+          },
+          {
+            "name": "initialized",
+            "type": "bool"
           }
         ]
       }
@@ -96,6 +150,32 @@ export const IDL: DappStarter = {
         }
       ],
       "args": []
+    },
+    {
+      "name": "reserve",
+      "accounts": [
+        {
+          "name": "reserveState",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "se",
+          "type": "string"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -107,6 +187,34 @@ export const IDL: DappStarter = {
           {
             "name": "count",
             "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "reserveState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "publicKey"
+          },
+          {
+            "name": "apy",
+            "type": "f32"
+          },
+          {
+            "name": "rewardToken",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenDecimals",
+            "type": "u8"
+          },
+          {
+            "name": "initialized",
+            "type": "bool"
           }
         ]
       }
