@@ -25,10 +25,12 @@ pub mod dapp_starter {
         Ok(())
     }
 
-    pub fn inspect(ctx: Context<Inspect>, se: String) -> ProgramResult {
+    pub fn inspect(ctx: Context<Inspect>, se: String, t: u32) -> ProgramResult {
         let reserve_state = &ctx.accounts.reserve_state;
         msg!("Data {} {} {} {}", reserve_state.reserve, reserve_state.apy, reserve_state.reward_token, reserve_state.reward_token);
-        msg!("New data {} {}", reserve_state.state_date, reserve_state.end_date);
+        if (t == 1) {
+            msg!("New data {} {}", reserve_state.state_date, reserve_state.end_date);
+        }
         Ok(())
     }
 }
