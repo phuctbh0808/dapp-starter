@@ -64,6 +64,22 @@ export type DappStarter = {
           "type": "string"
         }
       ]
+    },
+    {
+      "name": "inspect",
+      "accounts": [
+        {
+          "name": "reserveState",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "se",
+          "type": "string"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -90,7 +106,7 @@ export type DappStarter = {
           },
           {
             "name": "apy",
-            "type": "f32"
+            "type": "u32"
           },
           {
             "name": "rewardToken",
@@ -103,6 +119,14 @@ export type DappStarter = {
           {
             "name": "initialized",
             "type": "bool"
+          },
+          {
+            "name": "stateDate",
+            "type": "u32"
+          },
+          {
+            "name": "endDate",
+            "type": "u32"
           }
         ]
       }
@@ -176,6 +200,22 @@ export const IDL: DappStarter = {
           "type": "string"
         }
       ]
+    },
+    {
+      "name": "inspect",
+      "accounts": [
+        {
+          "name": "reserveState",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "se",
+          "type": "string"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -202,7 +242,7 @@ export const IDL: DappStarter = {
           },
           {
             "name": "apy",
-            "type": "f32"
+            "type": "u32"
           },
           {
             "name": "rewardToken",
@@ -215,6 +255,14 @@ export const IDL: DappStarter = {
           {
             "name": "initialized",
             "type": "bool"
+          },
+          {
+            "name": "stateDate",
+            "type": "u32"
+          },
+          {
+            "name": "endDate",
+            "type": "u32"
           }
         ]
       }

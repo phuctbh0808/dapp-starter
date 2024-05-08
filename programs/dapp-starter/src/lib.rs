@@ -24,6 +24,13 @@ pub mod dapp_starter {
         reserve_state.apy = 20;
         Ok(())
     }
+
+    pub fn inspect(ctx: Context<Inspect>, se: String) -> ProgramResult {
+        let reserve_state = &ctx.accounts.reserve_state;
+        msg!("Data {} {} {} {}", reserve_state.reserve, reserve_state.apy, reserve_state.reward_token, reserve_state.reward_token);
+        msg!("New data {} {}", reserve_state.state_date, reserve_state.end_date);
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
@@ -70,6 +77,16 @@ pub struct Reserve<'info> {
     pub system_program: Program<'info, System>,
 }
 
+#[derive(Accounts)]
+#[instruction(se: String)]
+pub struct Inspect<'info> {
+    #[account(
+        seeds = [se.as_ref()],
+        bump,
+    )]
+    pub reserve_state: Account<'info, ReserveState>,
+}
+
 #[account]
 pub struct Counter {
     pub count: u64,
@@ -82,4 +99,6 @@ pub struct ReserveState {
     pub reward_token: Pubkey,
     pub token_decimals: u8,
     pub initialized: bool,
+    pub state_date: u32,
+    pub end_date: u32,
 }

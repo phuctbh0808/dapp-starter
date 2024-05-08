@@ -64,6 +64,22 @@
           "type": "string"
         }
       ]
+    },
+    {
+      "name": "inspect",
+      "accounts": [
+        {
+          "name": "reserveState",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "se",
+          "type": "string"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -90,7 +106,7 @@
           },
           {
             "name": "apy",
-            "type": "f32"
+            "type": "u32"
           },
           {
             "name": "rewardToken",
@@ -103,6 +119,14 @@
           {
             "name": "initialized",
             "type": "bool"
+          },
+          {
+            "name": "stateDate",
+            "type": "u32"
+          },
+          {
+            "name": "endDate",
+            "type": "u32"
           }
         ]
       }
