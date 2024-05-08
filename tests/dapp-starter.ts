@@ -58,4 +58,19 @@ describe("dapp-starter", () => {
     const reserveStateAccount = await program.account.reserveState.fetch(reserveState);
     console.log(reserveStateAccount);
   })
+
+  it("Inspect reverse", async () => {
+    const se = "SE2";
+    const [reserveState] = anchor.web3.PublicKey.findProgramAddressSync(
+        [Buffer.from(se)],
+        program.programId,
+    );
+    const tx = await program.rpc.inspect({
+      accounts: {
+        reserveState: reserveState,
+      },
+    });
+    const reserveStateAccount = await program.account.reserveState.fetch(reserveState);
+    console.log(reserveStateAccount);
+  })
 });
